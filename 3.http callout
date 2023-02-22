@@ -1,0 +1,17 @@
+public class HttpCalloutExample {
+    public static void makeHttpCallout() {
+        String endpoint = 'https://postman-echo.com/get?fool-bar1&foo2=bar2';
+        Http h = new Http();
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(endpoint);
+        req.setMethod('GET');
+        HttpResponse res = h.send(req);
+        if (res.getStatusCode() == 200) {
+            System.debug(res.getBody());
+        }
+    }
+}
+
+call the method using anonymous window
+
+HttpCalloutExample.makeHttpCallout();
